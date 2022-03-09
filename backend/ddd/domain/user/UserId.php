@@ -6,7 +6,10 @@ use Ramsey\Uuid\Uuid;
 
 final class UserId{
 
-    private function __constractore(){
-        return 1;
+    private $value;
+
+    private function __constractore(int $value){
+        dd($value);
+        $this->value = $value;
     }
 }

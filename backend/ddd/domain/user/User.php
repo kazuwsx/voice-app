@@ -10,7 +10,7 @@ final class User {
     private $mail_address;
 
     private function __construct(
-        string $user_id,
+        UserId $user_id,
         string $user_name,
         string $mail_address
     )
@@ -22,11 +22,12 @@ final class User {
 
 
     static function create(
+        UserId $user_id,
         string $user_name,
         string $mail_address
     ): User {
         $user = new User(
-            'aiueo',
+            $user_id,
             $user_name,
             $mail_address
         );

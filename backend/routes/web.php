@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\User\UserIndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +18,4 @@ Route::get('/', function(){
     return 'index';
 });
 
-Route::get('/user',
-    [UserController::class, 'index']
-);
+Route::get('/users',UserIndexController::class);
