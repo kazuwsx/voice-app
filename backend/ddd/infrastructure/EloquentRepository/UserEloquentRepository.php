@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\DB;
 class UserEloquentRepository implements UserRepository{
 
     public function selectAll(){
-        $results = DB::table('user')->get();
+        $results = DB::table('users')
+            ->select('id','name','email')
+            ->first();
         return $results;
     }
 }

@@ -8,8 +8,12 @@ final class UserId{
 
     private $value;
 
-    private function __constractore(int $value){
-        dd($value);
+    public function __construct(string $value) {
         $this->value = $value;
+    }
+
+    public function get_user_id(): string
+    {
+        return $this->value;
     }
 }
