@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserIndexController;
 
@@ -13,9 +14,11 @@ use App\Http\Controllers\User\UserIndexController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', TopController::class);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home');
 
 Route::get('/users',UserIndexController::class);
 
 Auth::routes();
-
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
