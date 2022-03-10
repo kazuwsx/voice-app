@@ -20,5 +20,9 @@
         </div>
     </div>
     <div>音声１</div>
+    <div>音声１</div>
+    <div>音声１</div>
+    <div>音声１</div>
+    <div>音声１</div>
 </div>
 @endsection
