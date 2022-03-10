@@ -14,8 +14,8 @@ use App\Http\Controllers\User\UserIndexController;
 |
 */
 
-Route::get('/', function(){
-    return 'index';
-});
-
 Route::get('/users',UserIndexController::class);
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
