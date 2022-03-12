@@ -21,4 +21,17 @@ final class UserName{
     {
         return $this->value;
     }
+
+    public static function get_validation_rule(): Array {
+
+        $validation_rule = [
+            'required'
+            ,'string'
+            ,'email:rfc,dns,strict,spoof'
+            ,'max:' . self::MAX_LENGTH
+            ,'unique:users'
+    ];
+
+        return $validation_rule;
+    }
 }

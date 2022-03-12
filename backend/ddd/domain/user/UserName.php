@@ -21,4 +21,15 @@ final class UserName{
     {
         return $this->value;
     }
+
+    public static function get_validation_rule(): Array {
+
+        $validation_rule = [
+            'required'
+            ,'string'
+            ,'max:' . self::MAX_LENGTH
+        ];
+
+        return $validation_rule;
+    }
 }

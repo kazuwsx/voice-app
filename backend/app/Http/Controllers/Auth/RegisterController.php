@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Ddd\Domain\User\UserName;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -49,9 +50,11 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $name_validation_rule = UserName::get_validation_rule();
+        $email_validation_rule = UserEmail::get_validation_rule();
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:20'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => $name_validation_rule,
+            'email' => $email_validation_rule,
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
