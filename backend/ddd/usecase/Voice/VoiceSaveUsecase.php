@@ -12,7 +12,9 @@ class VoiceSaveUsecase{
         $this->voice_file = $voice_file;
         $this->title = $title;
     }
+
     function execute(){
         $this->voice_file->store('voice');
+        dd($this->voice_file);
     }
 }
