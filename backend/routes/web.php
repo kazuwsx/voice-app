@@ -3,6 +3,8 @@
 use App\Http\Controllers\TopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserIndexController;
+use App\Http\Controllers\Voice\VoiceCreateController;
+use App\Http\Controllers\Voice\VoiceSaveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +22,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
     ->name('home');
 
 Route::get('/users',UserIndexController::class);
+Route::get('/voice/create', VoiceCreateController::class);
+Route::post('/voice/save', VoiceSaveController::class);
 
 Auth::routes();
