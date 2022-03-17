@@ -1,20 +1,45 @@
 <?php
 namespace Ddd\Usecase\Voice;
 
+use Ddd\Domain\User\UserId;
 use Ddd\Domain\Voice\Title;
+use Ddd\Domain\Voice\VoiceEntity;
+use Ddd\Domain\Voice\VoiceFileName;
+use Ddd\Domain\Voice\VoiceTime;
+use Ddd\Domain\Voice\VoiceTitle;
+use Illuminate\Support\Facades\Auth;
 
 class VoiceSaveUsecase{
 
     private $voice_file;
-    private $title;
+    private $voice_title;
+    private $voice_file_name;
+    private $user_id;
 
-    function __construct($voice_file, Title $title) {
+    function __construct(
+        $voice_file,
+        VoiceFileName $voice_file_name,
+        VoiceTitle $voice_title,
+        UserId $user_id
+    ) {
         $this->voice_file = $voice_file;
-        $this->title = $title;
+        $this->voice_file_name = $voice_file_name;
+        $this->voice_title = $voice_title;
+        $this->user_id = $user_id;
+
     }
 
     function execute(){
-        $this->voice_file->store('voice');
-        dd($this->voice_file);
+        $stored_file_path = $this->voice_file->store('voice');
+        $stored_file_name = str_replace('voice/', '', $stored_file_path);
+        $voice_file_name = new VoiceFileName($stored_file_name);
+        $voice_time = new VoiceTime(100);
+        $time = 100;
+        $voice_entity = VoiceEntity::create(
+            $this->voice_title,
+            $voice_time,
+            $this->user_id,
+            $voice_file_name
+        );
     }
 }

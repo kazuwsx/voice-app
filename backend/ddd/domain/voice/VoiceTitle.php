@@ -4,7 +4,7 @@ namespace Ddd\Domain\Voice;
 
 use Exception;
 
-final class Title{
+final class VoiceTitle{
 
     private $value;
 

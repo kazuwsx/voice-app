@@ -4,7 +4,7 @@ namespace Ddd\Domain\User;
 
 use Exception;
 
-final class UserName{
+final class UserEmail{
 
     private $value;
 

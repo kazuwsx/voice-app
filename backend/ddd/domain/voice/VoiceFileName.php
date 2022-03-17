@@ -6,13 +6,18 @@ use Exception;
 
 use function PHPUnit\Framework\throwException;
 
-final class VoiceFile{
+final class VoiceFileName{
 
     private $value;
     const ALLOWED_EXTENTIONS = ['mp3'];
 
     public function __construct(string $value) {
-        if(pathinfo($value, PATHINFO_EXTENSION) !== ALLOWED_EXTENTIONS) {
+        if(
+            !in_array(
+                pathinfo($value, PATHINFO_EXTENSION),
+                self::ALLOWED_EXTENTIONS
+            )
+        ) {
             throw new Exception('許可された拡張子以外のファイルが投稿されました。');
         }
         $this->value = $value;

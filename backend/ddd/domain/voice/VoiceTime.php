@@ -4,15 +4,15 @@ namespace Ddd\Domain\Voice;
 
 use Exception;
 
-final class Url{
+final class VoiceTime{
 
     private $value;
 
-    public function __construct(string $value) {
+    public function __construct(int $value) {
         $this->value = $value;
     }
 
-    public function get_url(): string
+    public function get_user_id(): int
     {
         return $this->value;
     }
