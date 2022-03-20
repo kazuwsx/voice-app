@@ -17,7 +17,7 @@ final class VoiceTitle{
         $this->value = $value;
     }
 
-    public function get_title(): string
+    public function getValue(): string
     {
         return $this->value;
     }

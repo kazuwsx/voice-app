@@ -12,7 +12,7 @@ final class VoiceTime{
         $this->value = $value;
     }
 
-    public function get_user_id(): int
+    public function getValue(): int
     {
         return $this->value;
     }

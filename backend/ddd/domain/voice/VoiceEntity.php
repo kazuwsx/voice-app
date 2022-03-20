@@ -24,6 +24,21 @@ final class VoiceEntity {
         $this->voice_file_name = $voice_file_name;
     }
 
+    public function getVoiceTitle()
+    {
+        return $this->voice_title->getValue();
+    }
+
+    public function getVoiceTime()
+    {
+        return $this->voice_time->getValue();
+    }
+
+    public function getVoiceFileName()
+    {
+        return $this->voice_file_name->getValue();
+    }
+
     static function reconnstruct(
         VoiceTitle $voice_title,
         VoiceTime $voice_time,

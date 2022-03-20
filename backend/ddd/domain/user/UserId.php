@@ -8,11 +8,11 @@ final class UserId{
 
     private $value;
 
-    public function __construct(string $value) {
+    public function __construct(int $value) {
         $this->value = $value;
     }
 
-    public function get_user_id(): string
+    public function getValue(): string
     {
         return $this->value;
     }

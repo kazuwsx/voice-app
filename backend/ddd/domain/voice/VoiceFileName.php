@@ -23,7 +23,7 @@ final class VoiceFileName{
         $this->value = $value;
     }
 
-    public function get_url(): string
+    public function getValue(): string
     {
         return $this->value;
     }

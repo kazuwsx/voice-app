@@ -25,5 +25,7 @@ class VoiceSaveController extends Controller
             $user_id
         );
         $voice_save_usecase->execute();
+
+        return view('voice.save');
     }
 }

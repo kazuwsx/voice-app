@@ -19,10 +19,11 @@
             </div>
         </div>
     </div>
-    <div>音声１</div>
-    <div>音声１</div>
-    <div>音声１</div>
-    <div>音声１</div>
-    <div>音声１</div>
+
+    @foreach($voice_entities as $voice_entity)
+        <p>{{ $voice_entity->getVoiceTitle() }}</p>
+        <p>{{ $voice_entity->getVoiceTime() }}</p>
+        <audio controls src="{{ asset( 'storage/voice/' . $voice_entity->getVoiceFileName()) }}" ></audio>
+    @endforeach
 </div>
 @endsection
