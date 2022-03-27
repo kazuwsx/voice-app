@@ -16,11 +16,11 @@ class EloquentVoiceRepository implements VoiceRepository {
         VoiceFileName $voice_file_name,
         UserId $user_id
     ){
-        $sql = 'insert into voices (title, time, file_name, user_id) values (?,?,?,?)';
-
-        $voice_record = DB::insert($sql, [
+        $sql = 'insert into voices (title, playtime_minuts, playtime_seconds, file_name, user_id) values (?,?,?,?,?)';
+        DB::insert($sql, [
             $voice_title->getValue(),
-            $voice_time->getValue(),
+            $voice_time->getMinuts(),
+            $voice_time->getSeconds(),
             $voice_file_name->getValue(),
             $user_id->getValue(),
         ]);
@@ -42,7 +42,7 @@ class EloquentVoiceRepository implements VoiceRepository {
     {
         return VoiceEntity::reconnstruct(
             $voice_title = new VoiceTitle($voice_record->title),
-            $voice_time = new VoiceTime($voice_record->time),
+            $voice_time = new VoiceTime($voice_record->playtime_minuts, $voice_record->playtime_minuts),
             $user_id = new UserId($voice_record->user_id),
             $voice_file_name = new VoiceFileName($voice_record->file_name),
         );

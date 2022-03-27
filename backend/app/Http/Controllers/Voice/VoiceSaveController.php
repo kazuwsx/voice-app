@@ -9,6 +9,7 @@ use Ddd\Domain\Voice\VoiceTitle;
 use Ddd\Usecase\Voice\VoiceSaveUsecase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Owenoj\LaravelGetId3\GetId3;
 
 class VoiceSaveController extends Controller
 {
@@ -18,6 +19,7 @@ class VoiceSaveController extends Controller
         $voice_title = new VoiceTitle($request->input('title'));
         $voice_file_name = new VoiceFileName($request->voice_file->getClientOriginalName());
         $user_id = new UserId(Auth::id());
+
         $voice_save_usecase = new VoiceSaveUsecase(
             $request->file('voice_file'),
             $voice_file_name,

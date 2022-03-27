@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('voices', function (Blueprint $table) {
             $table->id();
             $table->string('title', 50);
-            $table->integer('time');
+            $table->integer('playtime_minuts');
+            $table->integer('playtime_seconds');
             $table->string('file_name', 100);
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

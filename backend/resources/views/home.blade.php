@@ -19,6 +19,6 @@
             </div>
         </div>
     </div>
-    <div>音声１</div>
 </div>
+<a href="/">トップへ戻る</a>
 @endsection

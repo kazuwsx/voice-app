@@ -11,6 +11,7 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
+        "owen-oj/laravel-getid3": "^2.0",
         "ramsey/uuid": "^4.2"
     },
     "require-dev": {

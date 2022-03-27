@@ -29,9 +29,14 @@ final class VoiceEntity {
         return $this->voice_title->getValue();
     }
 
-    public function getVoiceTime()
+    public function getVoicePlayTimeMinuts()
     {
-        return $this->voice_time->getValue();
+        return $this->voice_time->getMinuts();
+    }
+
+    public function getVoicePlayTimeSeconds()
+    {
+        return $this->voice_time->getSeconds();
     }
 
     public function getVoiceFileName()
