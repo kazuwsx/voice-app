@@ -4,19 +4,19 @@ namespace Ddd\Domain\Voice;
 
 use Exception;
 
-final class VoiceTime{
+final class VoicePlaybackTime{
 
     private $minuts;
     private $seconds;
 
     public function __construct(int $minuts, int $seconds) {
 
-        $voice_play_time_minuts = new VoicePlayTimeMinuts($minuts);
+        $voice_playback_time_minuts = new VoicePlaybackTimeMinuts($minuts);
 
-        $voice_play_time_seconds = new VoicePlayTimeSeconds($seconds);
+        $voice_playback_time_seconds = new VoicePlaybackTimeSeconds($seconds);
 
-        $this->minuts = $voice_play_time_minuts;
-        $this->seconds = $voice_play_time_seconds;
+        $this->minuts = $voice_playback_time_minuts;
+        $this->seconds = $voice_playback_time_seconds;
     }
 
     public function getMinuts(): int
@@ -30,7 +30,7 @@ final class VoiceTime{
     }
 }
 
-final class VoicePlayTimeMinuts {
+final class VoicePlaybackTimeMinuts {
     public function __construct(int $value) {
         $this->value = $value;
     }
@@ -41,7 +41,7 @@ final class VoicePlayTimeMinuts {
     }
 }
 
-final class VoicePlayTimeSeconds {
+final class VoicePlaybackTimeSeconds {
     public function __construct(int $value) {
         $this->value = $value;
     }

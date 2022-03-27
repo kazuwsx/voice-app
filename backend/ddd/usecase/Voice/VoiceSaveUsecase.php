@@ -2,7 +2,7 @@
 namespace Ddd\Usecase\Voice;
 
 use Ddd\Domain\User\UserId;
-use Ddd\Domain\Voice\VoiceTime;
+use Ddd\Domain\Voice\VoicePlaybackTime;
 use Ddd\Domain\Voice\VoiceTitle;
 use Ddd\Domain\Voice\VoiceFileName;
 use Ddd\Infrastructure\EloquentRepository\EloquentVoiceRepository;
@@ -46,11 +46,11 @@ class VoiceSaveUsecase{
         $seconds = substr($get_id3_extract_info_playtime_string, $colon_point + 1);
         $seconds_to_int = intval($seconds);
 
-        $voice_time = new VoiceTime($minuts_to_int, $seconds_to_int);
+        $voice_playback_time = new VoicePlaybackTime($minuts_to_int, $seconds_to_int);
 
         $eloquent_voice_repository->insert(
             $this->voice_title,
-            $voice_time,
+            $voice_playback_time,
             $voice_file_name,
             $this->user_id,
         );

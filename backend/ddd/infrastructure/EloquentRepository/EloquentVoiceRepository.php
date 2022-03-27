@@ -2,7 +2,7 @@
 namespace Ddd\Infrastructure\EloquentRepository;
 
 use Ddd\Domain\User\UserId;
-use Ddd\Domain\Voice\VoiceTime;
+use Ddd\Domain\Voice\VoicePlaybackTime;
 use Ddd\Domain\Voice\VoiceTitle;
 use Ddd\Domain\Voice\VoiceEntity;
 use Illuminate\Support\Facades\DB;
@@ -12,15 +12,15 @@ use Ddd\Domain\Voice\VoiceRepository;
 class EloquentVoiceRepository implements VoiceRepository {
     function insert(
         VoiceTitle $voice_title,
-        VoiceTime $voice_time,
+        VoicePlaybackTime $voice_playback_time,
         VoiceFileName $voice_file_name,
         UserId $user_id
     ){
-        $sql = 'insert into voices (title, playtime_minuts, playtime_seconds, file_name, user_id) values (?,?,?,?,?)';
+        $sql = 'insert into voices (title, playback_time_minuts, playback_time_seconds, file_name, user_id) values (?,?,?,?,?)';
         DB::insert($sql, [
             $voice_title->getValue(),
-            $voice_time->getMinuts(),
-            $voice_time->getSeconds(),
+            $voice_playback_time->getMinuts(),
+            $voice_playback_time->getSeconds(),
             $voice_file_name->getValue(),
             $user_id->getValue(),
         ]);
@@ -42,7 +42,10 @@ class EloquentVoiceRepository implements VoiceRepository {
     {
         return VoiceEntity::reconnstruct(
             $voice_title = new VoiceTitle($voice_record->title),
-            $voice_time = new VoiceTime($voice_record->playtime_minuts, $voice_record->playtime_minuts),
+            $voice_time = new VoicePlaybackTime(
+                $voice_record->playback_time_minuts,
+                $voice_record->playback_time_minuts,
+            ),
             $user_id = new UserId($voice_record->user_id),
             $voice_file_name = new VoiceFileName($voice_record->file_name),
         );
