@@ -20,7 +20,8 @@ final class VoiceEntity {
         VoiceFileName $voice_file_name
     ){
         $this->voice_title = $voice_title;
-        $this->voice_time = $voice_playback_time;
+        $this->voice_playback_time = $voice_playback_time;
+        $this->user_id = $user_id;
         $this->voice_file_name = $voice_file_name;
     }
 
@@ -31,12 +32,12 @@ final class VoiceEntity {
 
     public function getVoicePlayTimeMinuts()
     {
-        return $this->voice_time->getMinuts();
+        return $this->voice_playback_time->getMinuts();
     }
 
     public function getVoicePlayTimeSeconds()
     {
-        return $this->voice_time->getSeconds();
+        return $this->voice_playback_time->getSeconds();
     }
 
     public function getVoiceFileName()

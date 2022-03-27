@@ -24,7 +24,11 @@
     @foreach($voice_entities as $voice_entity)
         <p>{{ $voice_entity->getVoiceTitle() }}</p>
         <p>{{ $voice_entity->getVoicePlayTimeMinuts() }}分</p>
-        <audio controls src="{{ asset( 'storage/voice/' . $voice_entity->getVoiceFileName()) }}" ></audio>
+        @php
+            dd($voice_entity);
+        @endphp
+
+        <!-- <audio controls src="{{ asset( 'storage/voice/' . $voice_entity->getVoiceFileName()) }}" ></audio> -->
     @endforeach
 </div>
 @endsection

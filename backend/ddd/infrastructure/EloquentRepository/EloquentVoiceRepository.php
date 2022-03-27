@@ -41,13 +41,13 @@ class EloquentVoiceRepository implements VoiceRepository {
     private function mapRecordToEntity($voice_record): VoiceEntity
     {
         return VoiceEntity::reconnstruct(
-            $voice_title = new VoiceTitle($voice_record->title),
-            $voice_time = new VoicePlaybackTime(
+            new VoiceTitle($voice_record->title),
+            new VoicePlaybackTime(
                 $voice_record->playback_time_minuts,
                 $voice_record->playback_time_minuts,
             ),
-            $user_id = new UserId($voice_record->user_id),
-            $voice_file_name = new VoiceFileName($voice_record->file_name),
+            new UserId($voice_record->user_id),
+            new VoiceFileName($voice_record->file_name),
         );
     }
 
