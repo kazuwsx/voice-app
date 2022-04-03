@@ -21,14 +21,10 @@
     </div>
 
     <a href="/voice/create">音声を投稿</a>
-    @foreach($voice_entities as $voice_entity)
-        <p>{{ $voice_entity->getVoiceTitle() }}</p>
-        <p>{{ $voice_entity->getVoicePlayTimeMinuts() }}分</p>
-        @php
-            dd($voice_entity);
-        @endphp
-
-        <!-- <audio controls src="{{ asset( 'storage/voice/' . $voice_entity->getVoiceFileName()) }}" ></audio> -->
+    @foreach($voices as $voice)
+        <p>{{ $voice->title }}</p>
+        <p>{{ $voice->playback_time_minuts }}分</p>
+        <a href="{{$voice->id }}">ここをクリック</a>
     @endforeach
 </div>
 @endsection

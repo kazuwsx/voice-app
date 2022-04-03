@@ -7,6 +7,7 @@ use Ddd\Domain\Voice\VoiceTitle;
 use Ddd\Domain\Voice\VoiceEntity;
 use Illuminate\Support\Facades\DB;
 use Ddd\Domain\Voice\VoiceFileName;
+use Ddd\Domain\Voice\VoiceId;
 use Ddd\Domain\Voice\VoiceRepository;
 
 class EloquentVoiceRepository implements VoiceRepository {
@@ -41,6 +42,7 @@ class EloquentVoiceRepository implements VoiceRepository {
     private function mapRecordToEntity($voice_record): VoiceEntity
     {
         return VoiceEntity::reconnstruct(
+            new VoiceId($voice_record->id),
             new VoiceTitle($voice_record->title),
             new VoicePlaybackTime(
                 $voice_record->playback_time_minuts,

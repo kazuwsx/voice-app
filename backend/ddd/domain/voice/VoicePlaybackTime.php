@@ -2,8 +2,6 @@
 
 namespace Ddd\Domain\Voice;
 
-use Exception;
-
 final class VoicePlaybackTime{
 
     private $minuts;
