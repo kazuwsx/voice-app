@@ -24,7 +24,7 @@
     @foreach($voices as $voice)
         <p>{{ $voice->title }}</p>
         <p>{{ $voice->playback_time_minuts }}分</p>
-        <a href="{{$voice->id }}">ここをクリック</a>
+        <a href="/voice/{{$voice->id }}">ここをクリック</a>
     @endforeach
 </div>
 @endsection

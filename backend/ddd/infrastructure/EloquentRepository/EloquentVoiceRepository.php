@@ -12,17 +12,17 @@ use Ddd\Domain\Voice\VoiceRepository;
 
 class EloquentVoiceRepository implements VoiceRepository {
     function insert(
-        VoiceTitle $voice_title,
-        VoicePlaybackTime $voice_playback_time,
-        VoiceFileName $voice_file_name,
+        VoiceTitle $title,
+        VoicePlaybackTime $playback_time,
+        VoiceFileName $file_name,
         UserId $user_id
     ){
         $sql = 'insert into voices (title, playback_time_minuts, playback_time_seconds, file_name, user_id) values (?,?,?,?,?)';
         DB::insert($sql, [
-            $voice_title->getValue(),
-            $voice_playback_time->getMinuts(),
-            $voice_playback_time->getSeconds(),
-            $voice_file_name->getValue(),
+            $title->getValue(),
+            $playback_time->getMinuts(),
+            $playback_time->getSeconds(),
+            $file_name->getValue(),
             $user_id->getValue(),
         ]);
     }

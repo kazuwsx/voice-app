@@ -9,81 +9,81 @@ use Ddd\Domain\Voice\VoiceTitle;
 use Ddd\Domain\Voice\VoicePlaybackTime;
 
 final class VoiceEntity {
-    private $voice_id;
-    private $voice_title;
-    private $voice_playback_time;
+    private $id;
+    private $title;
+    private $playback_time;
     private $user_id;
-    private $voice_file_name;
+    private $file_name;
 
     private function __construct(
-        VoiceId $voice_id,
-        VoiceTitle $voice_title,
-        VoicePlaybackTime $voice_playback_time,
+        VoiceId $id,
+        VoiceTitle $title,
+        VoicePlaybackTime $playback_time,
         UserId $user_id,
-        VoiceFileName $voice_file_name
+        VoiceFileName $file_name
     ){
-        $this->voice_id = $voice_id;
-        $this->voice_title = $voice_title;
-        $this->voice_playback_time = $voice_playback_time;
+        $this->id = $id;
+        $this->title = $title;
+        $this->playback_time = $playback_time;
         $this->user_id = $user_id;
-        $this->voice_file_name = $voice_file_name;
+        $this->file_name = $file_name;
     }
 
-    public function getVoiceId()
+    public function getId()
     {
-        return $this->voice_id->getValue();
+        return $this->id->getValue();
     }
 
-    public function getVoiceTitle()
+    public function getTitle()
     {
-        return $this->voice_title->getValue();
+        return $this->title->getValue();
     }
 
-    public function getVoicePlayTimeMinuts()
+    public function getPlayTimeMinuts()
     {
-        return $this->voice_playback_time->getMinuts();
+        return $this->playback_time->getMinuts();
     }
 
-    public function getVoicePlayTimeSeconds()
+    public function getPlayTimeSeconds()
     {
-        return $this->voice_playback_time->getSeconds();
+        return $this->playback_time->getSeconds();
     }
 
-    public function getVoiceFileName()
+    public function getFileName()
     {
-        return $this->voice_file_name->getValue();
+        return $this->file_name->getValue();
     }
 
     static function reconnstruct(
-        VoiceId $voice_id,
-        VoiceTitle $voice_title,
-        VoicePlaybackTime $voice_playback_time,
+        VoiceId $id,
+        VoiceTitle $title,
+        VoicePlaybackTime $playback_time,
         UserId $user_id,
-        VoiceFileName $voice_file_name
+        VoiceFileName $file_name
     ):VoiceEntity {
         $voice = new VoiceEntity(
-            $voice_id,
-            $voice_title,
-            $voice_playback_time,
+            $id,
+            $title,
+            $playback_time,
             $user_id,
-            $voice_file_name
+            $file_name
         );
         return $voice;
     }
 
     static function create(
-        VoiceId $voice_id,
-        VoiceTitle $voice_title,
-        VoicePlaybackTime $voice_playback_time,
+        VoiceId $id,
+        VoiceTitle $title,
+        VoicePlaybackTime $playback_time,
         UserId $user_id,
-        VoiceFileName $voice_file_name
+        VoiceFileName $file_name
     ):VoiceEntity {
         $voice = new VoiceEntity(
-            $voice_id,
-            $voice_title,
-            $voice_playback_time,
+            $id,
+            $title,
+            $playback_time,
             $user_id,
-            $voice_file_name
+            $file_name
         );
         return $voice;
     }

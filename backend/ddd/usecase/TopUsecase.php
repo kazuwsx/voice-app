@@ -1,6 +1,7 @@
 <?php
 namespace Ddd\Usecase;
 
+use Ddd\Domain\Voice\VoiceDto;
 use Ddd\Infrastructure\EloquentRepository\EloquentVoiceRepository;
 
 class TopUsecase{
@@ -17,6 +18,11 @@ class TopUsecase{
     {
         $eloquent_voice_repository = new EloquentVoiceRepository();
         $voice_entities = $eloquent_voice_repository->selectAllOrderByCreatedAtLimit10();
-        return $voice_entities;
+        $voices = [];
+        foreach($voice_entities as $voice_entity){
+            $voice = new VoiceDto($voice_entity);
+            array_push($voices, $voice);
+        }
+        return $voices;
     }
 }

@@ -10,10 +10,10 @@ class VoiceDto {
     public $title;
     public $playback_time_minuts;
 
-    function __construct(VoiceEntity $voiceEntity)
+    function __construct(VoiceEntity $voice)
     {
-        $this->title = $voiceEntity->getVoiceTitle();
-        $this->id = $voiceEntity->getVoiceId();
-        $this->playback_time_minuts = $voiceEntity->getVoicePlayTimeMinuts();
+        $this->title = $voice->getTitle();
+        $this->id = $voice->getId();
+        $this->playback_time_minuts = $voice->getPlayTimeMinuts();
     }
 }

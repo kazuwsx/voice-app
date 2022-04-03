@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\TopController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TopController;
 use App\Http\Controllers\User\UserIndexController;
-use App\Http\Controllers\Voice\VoiceCreateController;
 use App\Http\Controllers\Voice\VoiceSaveController;
+use App\Http\Controllers\Voice\VoiceCreateController;
+use App\Http\Controllers\Voice\VoiceDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
 
 Route::get('/users',UserIndexController::class);
 Route::get('/voice/create', VoiceCreateController::class);
+Route::get('/voice/{id}', VoiceDetailsController::class);
 Route::post('/voice/save', VoiceSaveController::class);
 
 Auth::routes();

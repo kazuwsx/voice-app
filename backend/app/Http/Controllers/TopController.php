@@ -16,12 +16,7 @@ class TopController extends Controller
     public function __invoke()
     {
         $top_usecase = new TopUsecase();
-        $voice_entities = $top_usecase->execute();
-        $voices = [];
-        foreach($voice_entities as $voice_entity){
-            $voice = new VoiceDto($voice_entity);
-            array_push($voices, $voice);
-        }
+        $voices = $top_usecase->execute();
 
         return view('top', [
             'voices' => $voices,
