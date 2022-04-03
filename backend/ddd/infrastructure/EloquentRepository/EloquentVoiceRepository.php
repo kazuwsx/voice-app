@@ -39,6 +39,17 @@ class EloquentVoiceRepository implements VoiceRepository {
         return $voice_entities;
     }
 
+    function selectAllWhereIdFirst(VoiceId $id)
+    {
+        $voice_record = DB::table('voices')
+            ->where('id', $id->getValue())
+            ->first();
+
+        $voice_entity = self::mapRecordToEntity($voice_record);
+
+        return $voice_entity;
+    }
+
     private function mapRecordToEntity($voice_record): VoiceEntity
     {
         return VoiceEntity::reconnstruct(

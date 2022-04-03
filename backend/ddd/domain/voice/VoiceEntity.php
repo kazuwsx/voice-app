@@ -54,6 +54,11 @@ final class VoiceEntity {
         return $this->file_name->getValue();
     }
 
+    public function getUserId()
+    {
+        return $this->user_id->getValue();
+    }
+
     static function reconnstruct(
         VoiceId $id,
         VoiceTitle $title,
