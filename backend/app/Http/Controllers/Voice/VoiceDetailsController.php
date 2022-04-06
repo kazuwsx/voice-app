@@ -17,7 +17,7 @@ class VoiceDetailsController extends Controller
         $voice_details_usecase = new VoiceDetailsUsecase($id);
         $voice = $voice_details_usecase->execute();
 
-        return view('voice.details', [
+        return view('voice.details.index', [
             'voice' => $voice
         ]);
     }

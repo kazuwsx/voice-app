@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-@include('voice.card')
+@include('voice.details.card')
 @endsection
