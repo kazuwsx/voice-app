@@ -18,7 +18,7 @@ class TopController extends Controller
         $top_usecase = new TopUsecase();
         $voices = $top_usecase->execute();
 
-        return view('top', [
+        return view('top.index', [
             'voices' => $voices,
         ]);
     }
